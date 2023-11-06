@@ -13,6 +13,8 @@ require __DIR__ . '/../vendor/autoload.php';
 // Instantiate App
 $app = AppFactory::create();
 
+$app->setBasePath('/slim-php-deployment/app'); //test
+
 // Add error middleware
 $app->addErrorMiddleware(true, true, true);
 
@@ -21,13 +23,13 @@ $app->addBodyParsingMiddleware();
 
 // Routes
 $app->get('[/]', function (Request $request, Response $response) {
-    $payload = json_encode(array('method' => 'GET', 'msg' => "Bienvenido a SlimFramework 2023"));
+    $payload = json_encode(array('method' => 'GET', 'msg' => "Bienvenido a SlimFramework 2028"));
     $response->getBody()->write($payload);
     return $response->withHeader('Content-Type', 'application/json');
 });
 
 $app->get('/test', function (Request $request, Response $response) {
-    $payload = json_encode(array('method' => 'GET', 'msg' => "Bienvenido a SlimFramework 2023"));
+    $payload = json_encode(array('method' => 'GET', 'msg' => "grande richard"));
     $response->getBody()->write($payload);
     return $response->withHeader('Content-Type', 'application/json');
 });
